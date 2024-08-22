@@ -23,8 +23,8 @@ const kittyPrompts = {
   orangePetNames() {
     // Return an array of just the names of kitties who are orange e.g.
         // ['Tiger', 'Snickers']
-
-        /* CODE GOES HERE */
+        const orangeNames = kitties.filter(kitty => kitty.color === 'orange').map(kitty => kitty.name);
+        return orangeNames;
 
     // Annotation:
     // Write your annotation here as a comment
@@ -34,6 +34,8 @@ const kittyPrompts = {
     // Sort the kitties by their age
 
     /* CODE GOES HERE */
+    const sortedKitties = kitties.sort((a, b) => b.age - a.age);
+    return sortedKitties;
 
     // Annotation:
     // Write your annotation here as a comment
@@ -327,7 +329,7 @@ const bookPrompts = {
 
   getBooksByYear(books, year) {
     // return an array of objects containing all books that were
-    // published after the specified year without the author or genre data. 
+    // published after the specified year without the author or genre data.
     // The published property should be changed to year for the returned books.
     // e.g. given 1990, return
 
@@ -531,7 +533,7 @@ const breweryPrompts = {
 
 const boardGamePrompts = {
   listGames(type) {
-    // Return an array of just the names of the games within a specified type. 
+    // Return an array of just the names of the games within a specified type.
     // e.g. given an argument of "strategy", return
     // ["Chess", "Catan", "Checkers", "Pandemic", "Battle Ship", "Azul", "Ticket to Ride"]
 
@@ -542,8 +544,8 @@ const boardGamePrompts = {
   },
 
   listGamesAlphabetically(type) {
-    // Return an array of just the names of the games within a specified 
-    // type, sorted alphabetically. 
+    // Return an array of just the names of the games within a specified
+    // type, sorted alphabetically.
     // e.g. given an argument of "childrens", return
     // ["Candy Land", "Connect Four", "Operation", "Trouble"]
 
@@ -764,7 +766,7 @@ const ultimaPrompts = {
   totalDamage() {
 
     // Return the sum of the amount of damage for all the weapons that our characters can use.  Even though the same weapon might be used by multiple characters, count each weapon only once.
-    // Solve this *without* using Object.keys().  Hint: iterate over the characters array, then iterate through each character's weapons array. Find a way to make sure you only count each weapon once. 
+    // Solve this *without* using Object.keys().  Hint: iterate over the characters array, then iterate through each character's weapons array. Find a way to make sure you only count each weapon once.
     // Answer => 59
 
     /* CODE GOES HERE */
@@ -880,7 +882,7 @@ const bossPrompts = {
     // ]
 
     /* CODE GOES HERE */
- 
+
 
     // Annotation:
     // Write your annotation here as a comment

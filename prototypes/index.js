@@ -12,6 +12,7 @@ const { bosses, sidekicks } = require('./datasets/bosses');
 const { constellations, stars } = require('./datasets/astronomy');
 const { weapons, characters } = require('./datasets/ultima');
 const { dinosaurs, humans, movies } = require('./datasets/dinosaurs');
+const { clubs } = require('./datasets/clubs')
 
 
 
@@ -20,28 +21,28 @@ const { dinosaurs, humans, movies } = require('./datasets/dinosaurs');
 
 // DATASET: kitties from ./datasets/kitties
 const kittyPrompts = {
-  orangePetNames() {
+  orangePetNames(animals) {
     // Return an array of just the names of kitties who are orange e.g.
         // ['Tiger', 'Snickers']
-        const orangeNames = kitties.filter(kitty => kitty.color === 'orange').map(kitty => kitty.name);
+        const orangeNames = animals.filter(animal => animal.color === 'orange').map(animal => animal.name);
         return orangeNames;
 
     // Annotation:
     // Write your annotation here as a comment
   },
 
-  sortByAge() {
+  sortByAge(animals) {
     // Sort the kitties by their age
 
     /* CODE GOES HERE */
-    const sortedKitties = kitties.sort((a, b) => b.age - a.age);
-    return sortedKitties;
+    const sortedAnimals = animals.sort((a, b) => b.age - a.age);
+    return sortedAnimals;
 
     // Annotation:
     // Write your annotation here as a comment
   },
 
-  growUp() {
+  growUp(animals) {
     // Return an array of kitties who have all grown up by 2 years e.g.
     // [{
     //   name: 'Felicia',
@@ -56,6 +57,11 @@ const kittyPrompts = {
     // ...etc]
 
     /* CODE GOES HERE */
+    const grownUpAnimals = animals.map(animal => {
+      animal.age += 2;
+      return animal;
+    });
+    return grownUpAnimals;
   }
 };
 
@@ -79,7 +85,7 @@ const kittyPrompts = {
 
 // DATASET: clubs from ./datasets/clubs
 const clubPrompts = {
-  membersBelongingToClubs() {
+  membersBelongingToClubs(clubs) {
     // Your function should access the clubs data through a parameter (it is being passed as an argument in the test file)
     // Create an object whose keys are the names of people, and whose values are
     // arrays that include the names of the clubs that person is a part of. e.g.
@@ -90,6 +96,20 @@ const clubPrompts = {
     // }
 
     /* CODE GOES HERE */
+    let memberClubs = {}
+    const members = clubs.forEach(club =>
+        club.members.forEach(member =>
+          memberClubs[member] = []
+        )
+    )
+    for (const [name, classes] of Object.entries(memberClubs)) {
+      clubs.forEach(club => {
+        if (club.members.includes(name)) {
+          memberClubs[name].push(club.club)
+        }
+      });
+    }
+    return memberClubs;
 
     // Annotation:
     // Write your annotation here as a comment

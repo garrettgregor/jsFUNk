@@ -185,6 +185,13 @@ const cakePrompts = {
     // ]
 
     /* CODE GOES HERE */
+    const stock = cakes.map((cake) => {
+      return {
+        flavor: cake.cakeFlavor,
+        inStock: cake.inStock
+      }
+    });
+    return stock
 
     // Annotation:
     // Write your annotation here as a comment
@@ -212,6 +219,9 @@ const cakePrompts = {
     // ]
 
     /* CODE GOES HERE */
+    const stock = cakes.filter((cake) =>
+        cake.inStock > 0).map((cake) => cake)
+    return stock
 
     // Annotation:
     // Write your annotation here as a comment

@@ -142,7 +142,7 @@ If you'd like to keep track of your progress, feel free to use the checklist bel
 - [x] kitties
 - [x] puppers
 - [x] club
-- [ ] mods
+- [x] mods
 - [ ] cakes
 - [ ] classrooms
 - [ ] books

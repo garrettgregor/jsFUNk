@@ -248,6 +248,15 @@ const cakePrompts = {
     // ['dutch process cocoa', 'toasted sugar', 'smoked sea salt', 'berries', ..etc]
 
     /* CODE GOES HERE */
+    const ingredients = []
+    cakes.forEach((cake) => {
+      cake.toppings.forEach((topping) => {
+        if (!ingredients.includes(topping)) {
+          ingredients.push(topping)
+        }
+      })
+    })
+    return ingredients
 
     // Annotation:
     // Write your annotation here as a comment

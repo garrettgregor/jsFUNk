@@ -232,6 +232,11 @@ const cakePrompts = {
     // 59
 
     /* CODE GOES HERE */
+    let stock = 0
+    cakes.forEach((cake) => {
+      stock += cake.inStock
+    })
+    return stock
 
     // Annotation:
     // Write your annotation here as a comment

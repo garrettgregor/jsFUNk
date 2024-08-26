@@ -274,6 +274,19 @@ const cakePrompts = {
     // }
 
     /* CODE GOES HERE */
+    const list = {}
+
+    cakes.forEach((cake) => {
+      cake.toppings.forEach((topping) => {
+        if (list[topping]) {
+          list[topping] += 1
+        } else {
+          list[topping] = 1
+        }
+      })
+    })
+
+    return list
 
     // Annotation:
     // Write your annotation here as a comment

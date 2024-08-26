@@ -145,7 +145,13 @@ const modPrompts = {
     // ]
 
     /* CODE GOES HERE */
-
+    const modStudents = mods.map((mod) => {
+      return {
+        mod: mod.mod,
+        studentsPerInstructor: mod.students / mod.instructors
+      }
+    });
+    return modStudents;
     // Annotation:
     // Write your annotation here as a comment
   }

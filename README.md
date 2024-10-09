@@ -1,6 +1,6 @@
 # jsFun
 
-This repo contains practice exercises for solving data manipulation challenges using JS prototype methods. 
+This repo contains practice exercises for solving data manipulation challenges using JS prototype methods.
 
 ## Getting Started
 
@@ -36,14 +36,15 @@ In order to be successful when working with prototype methods, you'll need to ha
 ## Assessment Prep Focus
 
 🚨 You should expect to need the following methods on your midmod and final assessments:
-- forEach
-- filter
-- reduce
-- map
-- sort
-- includes
-- split 
-- join
+
+* forEach
+* filter
+* reduce
+* map
+* sort
+* includes
+* split
+* join
 
 Object.keys() **will not** be needed for your midmod or final assessments.
 
@@ -52,6 +53,7 @@ Object.keys() **will not** be needed for your midmod or final assessments.
 A benefit of this type of practice is that it can help you build a solid problem solving process that you can apply to any code challenge you encounter whether its ruby, JavaScript, familiar or unfamiliar.  Often, the biggest challenge in this type of work is not that you don't understand the prototype methods, but rather your problem solving process isn't polished enough for you to break down complex data and problems into small solvable steps.
 
 ### Problem Solving Process
+
 1. Restate the goal in your own words. Take note of EXACTLY what the final output(s) should be.
 1. Consider the data that you’re working with. What data types are you working with? Are there any parameters/arguments? What data in particular do you need access to?
 1. Ask clarifying questions that you have about the goal and/or the data. Is there anything that still unclear? It is critical that you have a complete and accurate idea of the goal and data before you move on.
@@ -64,11 +66,11 @@ Start coding by referencing the pseudocode you’ve written.
 
 ## Instructions
 
-In the [prototypes/index.js](https://github.com/turingschool-examples/jsFUNk/prototypes/index.js) file, you'll see several objects named after a collection of prompts that need to be solved. Each prompt is represented by a separate method on that object. 
+In the [prototypes/index.js](https://github.com/turingschool-examples/jsFUNk/prototypes/index.js) file, you'll see several objects named after a collection of prompts that need to be solved. Each prompt is represented by a separate method on that object.
 
 For example, the first object of prompts is called `kittyPrompts` and coincides with the dataset at `prototypes/datasets/kitties.js`. As you work through the methods on this object, it will help to switch your text editor layout to display 2 files at once - one for the dataset you're working with, and one for the prompts to be solved.
 
-Each prompt has an explanation of how the dataset should be manipulated, and what the final output should look like. 
+Each prompt has an explanation of how the dataset should be manipulated, and what the final output should look like.
 
 For example, given the following dataset and prompt:
 
@@ -105,7 +107,6 @@ const farmPrompts = {
 
 ```
 
-
 Your solution should look something like the following:
 
 ```js
@@ -128,52 +129,60 @@ const farmPrompts = {
     // Because we are given an array, and want a single number back,
     // we will reach for the `reduce` method since it is the only one
     // that allows us to return a value of any data type. On each iteration
-    // of reduce, we will add our current animal's `count` value to the 
+    // of reduce, we will add our current animal's `count` value to the
     // accumulator which will be returned when the iteration is complete.
   }
 }
 ```
+
 You will then check that your solution is correct by running the corresponding test in `test/prototype-test.js`.
 
 ## Prototype Test Checklist
+
 If you'd like to keep track of your progress, feel free to use the checklist below. Change the `[ ]` to `[x]` in order to check off each item.
 
-#### Single Data Sets
-- [x] kitties
-- [x] puppers
-- [x] club
-- [x] mods
-- [x] cakes
-- [ ] classrooms
-- [ ] books
-- [ ] weather
-- [ ] nationalParks
-- [ ] breweries
-- [ ] boardGames
+### Single Data Sets
+
+* [x] kitties
+
+* [x] puppers
+* [x] club
+* [x] mods
+* [x] cakes
+* [ ] classrooms
+* [ ] books
+* [ ] weather
+* [ ] nationalParks
+* [ ] breweries
+* [ ] boardGames
 
 ### Double Data Sets
-- [ ] turing (instructors, cohorts)
-- [ ] astronomy (constellations, stars)
-- [ ] ultima (weapons, characters)
+
+* [ ] turing (instructors, cohorts)
+
+* [ ] astronomy (constellations, stars)
+* [ ] ultima (weapons, characters)
 
 #### Triple Data Sets
-- [ ] dinosaurs (dinosaurs, humans, movies)
+
+* [ ] dinosaurs (dinosaurs, humans, movies)
 
 ### Object.keys Challenges (optional, not needed for assessment prep)
-- [ ] bosses (bosses, sidekicks)
-- [ ] astronomy II (constellations, stars)
-- [ ] dinosaurs II (dinosaurs, humans, movies)
 
+* [ ] bosses (bosses, sidekicks)
 
-# More Practice
+* [ ] astronomy II (constellations, stars)
+* [ ] dinosaurs II (dinosaurs, humans, movies)
+
+## More Practice
+
 For more practice and assessment prep, check out [this extra-practice-se2-assessment-style repo](https://github.com/turingschool-examples/extra-practice-se2-assessment-style)
 
+## Resources
 
-# Resources
 * [MDN - Array Prototype Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype#Methods)
 * [MDN - Object Prototype Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods_of_the_Object_constructor)
 <!-- * [Bracket and Dot Notation](<link needs added once SE version created>) -->
-
 
 <!-- ## Pulling Down Repo Changes
 
@@ -198,4 +207,3 @@ Now, whenever instructors tell you to pull down changes, there are two steps:
 2. Run `git pull turing main`
 
 Check out [this video](https://vimeo.com/turing/review/388550182/34823726eb) if you need help pulling down new changes! -->
-

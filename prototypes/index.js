@@ -96,23 +96,34 @@ const clubPrompts = {
     // }
 
     /* CODE GOES HERE */
-    let memberClubs = {}
-    const members = clubs.forEach(club =>
-        club.members.forEach(member =>
-          memberClubs[member] = []
-        )
-    )
-    for (const [name, classes] of Object.entries(memberClubs)) {
-      clubs.forEach(club => {
-        if (club.members.includes(name)) {
-          memberClubs[name].push(club.club)
-        }
-      });
-    }
-    return memberClubs;
+    // let memberClubs = {}
+    // const members = clubs.forEach(club =>
+    //     club.members.forEach(member =>
+    //       memberClubs[member] = []
+    //     )
+    // )
+    // for (const [name, classes] of Object.entries(memberClubs)) {
+    //   clubs.forEach(club => {
+    //     if (club.members.includes(name)) {
+    //       memberClubs[name].push(club.club)
+    //     }
+    //   });
+    // }
+    // return memberClubs;
 
+    const memberClubs = clubs.reduce((acc, club) => {
+      club.members.forEach(member => {
+        if (!acc[member]) {
+          acc[member] = [];
+        }
+        acc[member].push(club.club);
+      });
+      return acc;
+    }, {});
+
+    return memberClubs
     // Annotation:
-    // Write your annotation here as a comment
+    // utilizing the reduce function with the built in accumulator is a much more efficient process
   }
 };
 
@@ -321,6 +332,9 @@ const classPrompts = {
     // ]
 
     /* CODE GOES HERE */
+    const results = classrooms.filter((classroom) => classroom.program == 'FE')
+
+    return results
 
     // Annotation:
     // Write your annotation here as a comment
@@ -335,6 +349,16 @@ const classPrompts = {
     // }
 
     /* CODE GOES HERE */
+    const results = classrooms.reduce((acc, room) => {
+      if (room.program === "FE") {
+        acc.feCapacity += room.capacity;
+      } else if (room.program === "BE") {
+        acc.beCapacity += room.capacity;
+      }
+      return acc;
+    }, { feCapacity: 0, beCapacity: 0 });
+
+    return results;
 
     // Annotation:
     // Write your annotation here as a comment
@@ -344,6 +368,11 @@ const classPrompts = {
     // Return the array of classrooms sorted by their capacity (least capacity to greatest)
 
     /* CODE GOES HERE */
+    const results = classrooms.sort(
+      (a, b) => a.capacity - b.capacity
+    )
+
+    return results
 
     // Annotation:
     // Write your annotation here as a comment

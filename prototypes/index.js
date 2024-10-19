@@ -388,7 +388,7 @@ const classPrompts = {
 // DATASET: books from './datasets/books
 
 const bookPrompts = {
-  removeViolence() {
+  removeViolence(books) {
     // Your function should access the books data through a parameter (it is being passed as an argument in the test file)
     // return an array of all book titles that are not horror or true crime. Eg:
 
@@ -400,12 +400,21 @@ const bookPrompts = {
 
 
     /* CODE GOES HERE */
+    const unwantedGenres = ["Horror", "True Crime"]
 
+    const results = books.reduce((acc, book) => {
+      if (!unwantedGenres.includes(book.genre)) {
+        acc.push(book.title)
+      }
+      return acc
+    }, [])
+
+    return results
     // Annotation:
     // Write your annotation here as a comment
 
   },
-  getNewBooks() {
+  getNewBooks(books) {
     // return an array of objects containing all books that were
     // published in the 90's and 00's. Inlucde the title and the year Eg:
 
@@ -414,11 +423,19 @@ const bookPrompts = {
     //  { title: 'The Curious Incident of the Dog in the Night-Time', year: 2003 }]
 
     /* CODE GOES HERE */
+    const results = books.reduce((acc, book) => {
+      if (book.published >= 1990) {
+        acc.push({title: book.title, year: book.published})
+      }
+      return acc
+    }, [])
+
+    return results
+
 
     // Annotation:
     // Write your annotation here as a comment
   },
-
   getBooksByYear(books, year) {
     // return an array of objects containing all books that were
     // published after the specified year without the author or genre data.
@@ -430,11 +447,18 @@ const bookPrompts = {
     //  { title: 'The Curious Incident of the Dog in the Night-Time', year: 2003 }]
 
     /* CODE GOES HERE */
+    const results = books.reduce((acc, book) => {
+      if (book.published > year) {
+        acc.push({title: book.title, year: book.published})
+      }
+      return acc
+    }, [])
+
+    return results
 
     // Annotation:
     // Write your annotation here as a comment
   }
-
 };
 
 

@@ -149,8 +149,8 @@ If you'd like to keep track of your progress, feel free to use the checklist bel
 * [x] club
 * [x] mods
 * [x] cakes
-* [ ] classrooms
-* [ ] books
+* [x] classrooms
+* [x] books
 * [ ] weather
 * [ ] nationalParks
 * [ ] breweries

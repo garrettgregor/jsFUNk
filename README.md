@@ -151,7 +151,7 @@ If you'd like to keep track of your progress, feel free to use the checklist bel
 * [x] cakes
 * [x] classrooms
 * [x] books
-* [ ] weather
+* [x] weather
 * [ ] nationalParks
 * [ ] breweries
 * [ ] boardGames

@@ -476,11 +476,11 @@ const weatherPrompts = {
     //   temperature: { high: 49, low: 38 }
     // }
     /* CODE GOES HERE */
-    const results = weather.sort((a,b) => b.humidity - a.humidity);
+    const results = weather.sort((a, b) => b.humidity - a.humidity);
 
-    const locationWithHighestHumidity = results[0]
+    const locationWithHighestHumidity = results[0];
 
-    return locationWithHighestHumidity
+    return locationWithHighestHumidity;
 
     // Annotation:
     // Write your annotation here as a comment
@@ -504,6 +504,19 @@ const nationalParksPrompts = {
     //   parksVisited: ["Rocky Mountain", "Acadia", "Zion"]
     //}
     /* CODE GOES HERE */
+    const results = nationalParks.reduce(
+      (acc, park) => {
+        if (park.visited === true) {
+          acc.parksVisited.push(park.name);
+        } else if (park.visited === false) {
+          acc.parksToVisit.push(park.name);
+        }
+        return acc;
+      },
+      { parksToVisit: [], parksVisited: [] }
+    );
+
+    return results;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -517,6 +530,11 @@ const nationalParksPrompts = {
     // { Utah: 'Zion' },
     // { Florida: 'Everglades' } ]
     /* CODE GOES HERE */
+    const results = nationalParks.map((park) => {
+      return { [park.location]: park.name };
+    });
+
+    return results;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -537,8 +555,20 @@ const nationalParksPrompts = {
     //   'backpacking',
     //   'rock climbing' ]
     /* CODE GOES HERE */
+    const seen = [];
+
+    nationalParks.forEach((park) => {
+      park.activities.forEach((activity) => {
+        if (!seen.includes(activity)) {
+          seen.push(activity);
+        }
+      });
+    });
+
+    return seen;
+
     // Annotation:
-    // Write your annotation here as a comment
+    // Sometimes forEach wins the day
   },
 };
 

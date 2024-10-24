@@ -152,7 +152,7 @@ If you'd like to keep track of your progress, feel free to use the checklist bel
 * [x] classrooms
 * [x] books
 * [x] weather
-* [ ] nationalParks
+* [x] nationalParks
 * [ ] breweries
 * [ ] boardGames
 

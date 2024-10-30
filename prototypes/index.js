@@ -584,6 +584,12 @@ const breweryPrompts = {
     // Return the total beer count of all beers for every brewery e.g.
     // 40
     /* CODE GOES HERE */
+    const numberOfBeers = breweries.reduce((acc, brewery) => {
+      acc += brewery.beers.length;
+      return acc;
+    }, 0);
+
+    return numberOfBeers
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -597,6 +603,11 @@ const breweryPrompts = {
     // ...etc.
     // ]
     /* CODE GOES HERE */
+    const results = breweries.map((brewery) => {
+      return {name: brewery.name, beerCount: brewery.beers.length}
+    })
+
+    return results
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -606,6 +617,14 @@ const breweryPrompts = {
     // brewery has e.g.
     // given 'Ratio Beerworks', return 5
     /* CODE GOES HERE */
+    function filteredByName(arr, query) {
+      const brewery = arr.find((brewery) => brewery.name === query);
+      return brewery ? brewery.beers.length : 0;
+    }
+
+    const result = filteredByName(breweries, breweryName);
+
+    return result;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -615,6 +634,18 @@ const breweryPrompts = {
     // e.g.
     // { name: 'Barrel Aged Nature\'s Sweater', type: 'Barley Wine', abv: 10.9, ibu: 40 }
     /* CODE GOES HERE */
+    let highestAbvBeer = null;
+
+    breweries.forEach(brewery => {
+      brewery.beers.forEach(beer => {
+        if (!highestAbvBeer || beer.abv > highestAbvBeer.abv) {
+          highestAbvBeer = beer;
+        }
+      });
+    });
+
+    return highestAbvBeer;
+
     // Annotation:
     // Write your annotation here as a comment
   },

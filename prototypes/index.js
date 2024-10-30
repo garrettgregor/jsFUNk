@@ -589,7 +589,7 @@ const breweryPrompts = {
       return acc;
     }, 0);
 
-    return numberOfBeers
+    return numberOfBeers;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -604,10 +604,10 @@ const breweryPrompts = {
     // ]
     /* CODE GOES HERE */
     const results = breweries.map((brewery) => {
-      return {name: brewery.name, beerCount: brewery.beers.length}
-    })
+      return { name: brewery.name, beerCount: brewery.beers.length };
+    });
 
-    return results
+    return results;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -636,8 +636,8 @@ const breweryPrompts = {
     /* CODE GOES HERE */
     let highestAbvBeer = null;
 
-    breweries.forEach(brewery => {
-      brewery.beers.forEach(beer => {
+    breweries.forEach((brewery) => {
+      brewery.beers.forEach((beer) => {
         if (!highestAbvBeer || beer.abv > highestAbvBeer.abv) {
           highestAbvBeer = beer;
         }
@@ -665,6 +665,11 @@ const boardGamePrompts = {
     // e.g. given an argument of "strategy", return
     // ["Chess", "Catan", "Checkers", "Pandemic", "Battle Ship", "Azul", "Ticket to Ride"]
     /* CODE GOES HERE */
+    const list = boardGames[`${type}`].map((game) => {
+      return game.name
+    })
+
+    return list
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -675,6 +680,7 @@ const boardGamePrompts = {
     // e.g. given an argument of "childrens", return
     // ["Candy Land", "Connect Four", "Operation", "Trouble"]
     /* CODE GOES HERE */
+    return this.listGames(type).sort()
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -684,6 +690,13 @@ const boardGamePrompts = {
     // e.g. given the argument of 'party', return
     // { name: 'Codenames', rating: 7.4, maxPlayers: 8 },
     /* CODE GOES HERE */
+    const gamesListByType = boardGames[`${type}`].map((game) => {
+      return game
+    })
+
+    const sortedGamesListByType = gamesListByType.sort((a, b) => b.rating - a.rating)
+
+    return sortedGamesListByType[0]
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -693,6 +706,18 @@ const boardGamePrompts = {
     // e.g. given the argument of "strategy", return 7
     // note: do not worry about rounding your result.
     /* CODE GOES HERE */
+    const gamesListByType = boardGames[`${type}`].map((game) => {
+      return game
+    })
+
+    const numberOfGames = gamesListByType.length
+
+    const totalRating = gamesListByType.reduce((acc, game) => {
+      acc += game.rating
+      return acc
+    }, 0)
+
+    return (totalRating / numberOfGames)
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -703,6 +728,16 @@ const boardGamePrompts = {
     // e.g. given the arguments of "strategy" and 2, return 6.16666666667
     // note: do not worry about rounding your result.
     /* CODE GOES HERE */
+    const gamesListByTypeAndMaxPlayers = boardGames[`${type}`].filter((game) => maximumPlayers === game.maxPlayers)
+
+    const numberOfGames = gamesListByTypeAndMaxPlayers.length
+
+    const totalRating = gamesListByTypeAndMaxPlayers.reduce((acc, game) => {
+      acc += game.rating
+      return acc
+    }, 0)
+
+    return (totalRating / numberOfGames)
     // Annotation:
     // Write your annotation here as a comment
   },

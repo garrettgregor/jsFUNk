@@ -144,7 +144,6 @@ If you'd like to keep track of your progress, feel free to use the checklist bel
 ### Single Data Sets
 
 * [x] kitties
-
 * [x] puppers
 * [x] club
 * [x] mods
@@ -153,13 +152,12 @@ If you'd like to keep track of your progress, feel free to use the checklist bel
 * [x] books
 * [x] weather
 * [x] nationalParks
-* [ ] breweries
-* [ ] boardGames
+* [x] breweries
+* [x] boardGames
 
 ### Double Data Sets
 
 * [ ] turing (instructors, cohorts)
-
 * [ ] astronomy (constellations, stars)
 * [ ] ultima (weapons, characters)
 

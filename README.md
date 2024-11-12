@@ -157,7 +157,7 @@ If you'd like to keep track of your progress, feel free to use the checklist bel
 
 ### Double Data Sets
 
-* [ ] turing (instructors, cohorts)
+* [x] turing (instructors, cohorts)
 * [ ] astronomy (constellations, stars)
 * [ ] ultima (weapons, characters)
 

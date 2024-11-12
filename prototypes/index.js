@@ -666,10 +666,10 @@ const boardGamePrompts = {
     // ["Chess", "Catan", "Checkers", "Pandemic", "Battle Ship", "Azul", "Ticket to Ride"]
     /* CODE GOES HERE */
     const list = boardGames[`${type}`].map((game) => {
-      return game.name
-    })
+      return game.name;
+    });
 
-    return list
+    return list;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -680,7 +680,7 @@ const boardGamePrompts = {
     // e.g. given an argument of "childrens", return
     // ["Candy Land", "Connect Four", "Operation", "Trouble"]
     /* CODE GOES HERE */
-    return this.listGames(type).sort()
+    return this.listGames(type).sort();
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -691,12 +691,14 @@ const boardGamePrompts = {
     // { name: 'Codenames', rating: 7.4, maxPlayers: 8 },
     /* CODE GOES HERE */
     const gamesListByType = boardGames[`${type}`].map((game) => {
-      return game
-    })
+      return game;
+    });
 
-    const sortedGamesListByType = gamesListByType.sort((a, b) => b.rating - a.rating)
+    const sortedGamesListByType = gamesListByType.sort(
+      (a, b) => b.rating - a.rating
+    );
 
-    return sortedGamesListByType[0]
+    return sortedGamesListByType[0];
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -707,17 +709,17 @@ const boardGamePrompts = {
     // note: do not worry about rounding your result.
     /* CODE GOES HERE */
     const gamesListByType = boardGames[`${type}`].map((game) => {
-      return game
-    })
+      return game;
+    });
 
-    const numberOfGames = gamesListByType.length
+    const numberOfGames = gamesListByType.length;
 
     const totalRating = gamesListByType.reduce((acc, game) => {
-      acc += game.rating
-      return acc
-    }, 0)
+      acc += game.rating;
+      return acc;
+    }, 0);
 
-    return (totalRating / numberOfGames)
+    return totalRating / numberOfGames;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -728,16 +730,18 @@ const boardGamePrompts = {
     // e.g. given the arguments of "strategy" and 2, return 6.16666666667
     // note: do not worry about rounding your result.
     /* CODE GOES HERE */
-    const gamesListByTypeAndMaxPlayers = boardGames[`${type}`].filter((game) => maximumPlayers === game.maxPlayers)
+    const gamesListByTypeAndMaxPlayers = boardGames[`${type}`].filter(
+      (game) => maximumPlayers === game.maxPlayers
+    );
 
-    const numberOfGames = gamesListByTypeAndMaxPlayers.length
+    const numberOfGames = gamesListByTypeAndMaxPlayers.length;
 
     const totalRating = gamesListByTypeAndMaxPlayers.reduce((acc, game) => {
-      acc += game.rating
-      return acc
-    }, 0)
+      acc += game.rating;
+      return acc;
+    }, 0);
 
-    return (totalRating / numberOfGames)
+    return totalRating / numberOfGames;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -768,6 +772,20 @@ const turingPrompts = {
     //  { name: 'Robbie', studentCount: 18 }
     // ]
     /* CODE GOES HERE */
+    const results = instructors.reduce((acc, instructor) => {
+      cohorts.find((cohort) => {
+        if (cohort.module === instructor.module) {
+          acc.push({
+            name: instructor.name,
+            studentCount: cohort.studentCount,
+          });
+        }
+      });
+      return acc;
+    }, []);
+
+    return results;
+
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -779,6 +797,22 @@ const turingPrompts = {
     // cohort1804: 10.5
     // }
     /* CODE GOES HERE */
+    const instructorsPerModule = instructors.reduce((acc, instructor) => {
+      if (acc[instructor.module]) {
+        acc[instructor.module] += 1;
+      } else {
+        acc[instructor.module] = 1;
+      }
+      return acc;
+    }, {});
+
+    const results = cohorts.reduce((acc, cohort) => {
+      acc[`cohort${cohort.cohort}`] =
+        cohort.studentCount / instructorsPerModule[cohort.module];
+      return acc;
+    }, {});
+
+    return results;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -798,6 +832,28 @@ const turingPrompts = {
     //     Will: [1, 2, 3, 4]
     //   }
     /* CODE GOES HERE */
+    const results = instructors.reduce((acc, instructor) => {
+      instructor.teaches.forEach((technology) => {
+        cohorts.forEach((cohort) => {
+          if (cohort.curriculum.includes(technology)) {
+            if (!acc[instructor.name]) {
+              acc[instructor.name] = [];
+            }
+            if (!acc[instructor.name].includes(cohort.module)) {
+              acc[instructor.name].push(cohort.module);
+            }
+            // or as shorthand:
+            // !acc[instructor.name] && (acc[instructor.name] = []);
+            // !acc[instructor.name].includes(cohort.module) && (acc[instructor.name].push(cohort.module));
+
+            acc[instructor.name].sort();
+          }
+        });
+      });
+      return acc;
+    }, {});
+
+    return results;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -812,8 +868,27 @@ const turingPrompts = {
     //   recursion: [ 'Pam', 'Leta' ]
     // }
     /* CODE GOES HERE */
+    const results = cohorts.reduce((acc, cohort) => {
+      cohort.curriculum.forEach((technology) => {
+        instructors.forEach((instructor) => {
+          if (instructor.teaches.includes(technology)) {
+            !acc[technology] && (acc[technology] = [instructor.name]);
+            !acc[technology].includes(instructor.name) &&
+              acc[technology].push(instructor.name);
+          }
+        });
+      });
+      return acc;
+    }, {});
+
+    return results;
     // Annotation:
-    // Write your annotation here as a comment
+    // !acc[technology] && (acc[technology] = [instructor.name])
+    // ^^^ is the same as:
+    // if (!acc[technology]) {
+    // acc[technology] = [instructor.name]
+    // }
+    //
   },
 };
 
